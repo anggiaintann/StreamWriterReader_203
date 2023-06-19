@@ -22,23 +22,24 @@ int main() {
 		cout << "- ";
 		//mendapatkan setiap karakter dalam satu baris
 		getline(cin, baris);
-		//loop akan berhenti jika anda memasukkan karakter 4
+		//loop akan berhenti jika anda masukkan karakter q
 		if (baris == "q") break;
-		//menulis dan memasukkan nilai dari 'baris' ke dalam file
+		//Menulis dan memasukan nilai dari 'baris' ke dalam file
 		outfile << baris << endl;
 	}
 	//selesai dalam menulis sekarang tutup filenya
 	outfile.close();
+
 	//membuka file dalam mode membaca
 	ifstream infile;
 	//menunjuk ke sebuah file
-	infile.open(NamaFile + ".txt");
+	infile.open(NamaFile + ".txt", ios::in);
 
-	cout << endl << ">= Membuka dan membaca file " << endl;
+	cout << endl << ">= Membulka dan membaca file " << endl;
 	//jika file ada maka
 	if (infile.is_open())
 	{
-		//melakukan perulangan setiap baris
+		//melakukan perulangan disetiap baris
 		while (getline(infile, baris))
 		{
 			//dan tampilkan disini
@@ -48,6 +49,6 @@ int main() {
 		infile.close();
 	}
 	//jika tidak ditemukan file maka akan menampilkan ini
-	else cout << "Unable to open file";
+	else cout << "unable to open file";
 	return 0;
 }
